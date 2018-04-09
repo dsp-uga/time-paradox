@@ -1,5 +1,5 @@
 # Team Time Paradox
-Final PRoject for DSP
+Final Project for DSP
 
 # Heading
 
@@ -76,7 +76,7 @@ In Folders ```\Train``` and ```\Test``` respectively
  
 ## Results
 
-We have used multiple networks and below are the results followed by the person resonsible for that result
+We have used multiple networks and below are the results followed by the person responsible for that result
 
 Method| Configuration | Dice (training) | Dice (testing) | Personnel 
 --- | --- | --- | --- | ---
@@ -86,8 +86,8 @@ Method| Configuration | Dice (training) | Dice (testing) | Personnel
 ## Authors
 
 * **Nihal Soans** - [nihalsoans91](https://github.com/nihalsoans91)
-* **Vinay Kumar** - [nihalsoans91](https://github.com/vinayawsm)
-* **Vamsi Nadella** - [nihalsoans91](https://github.com/vamsi3309)
+* **Vamsi Nadella** - [vamsi3309](https://github.com/vamsi3309)
+* **Vinay Kumar** - [vinayawsm](https://github.com/vinayawsm)
 
 
 See also the list of [contributors](https://github.com/dsp-uga/time-paradox/blob/master/CONTRIBUTORS.md) who participated in this project.
