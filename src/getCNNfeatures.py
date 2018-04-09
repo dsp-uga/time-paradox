@@ -15,16 +15,6 @@ import tensorflow as tf
 from tensorflow_vgg import vgg16
 from tensorflow_vgg import utils
 
-# matlab packages
-print("Importing Matlab Packages")
-import matplotlib.pyplot as plt
-
-# Scikit Packages
-print("Importing Scikit Packages")
-from scipy.ndimage import imread
-from sklearn.preprocessing import LabelBinarizer
-from sklearn.model_selection import StratifiedShuffleSplit
-
 
 class Find_State(object):
     def __init__(self):
