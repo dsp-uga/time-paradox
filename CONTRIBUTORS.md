@@ -2,15 +2,17 @@
 # CONTRIBUTORS 
 
 ### Nihal Soans
- - Project Management
  - Readme
  - Wiki
 
 ### Vamsi
-
+- Readme
+ - Wiki
 
 ### Vinay
-
+- Readme
+- Wiki
+- NIPS style Paper
 
 
 ### Shadow Resources
