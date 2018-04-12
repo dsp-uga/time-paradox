@@ -15,6 +15,16 @@ import tensorflow as tf
 from tensorflow_vgg import vgg16
 from tensorflow_vgg import utils
 
+# matlab packages
+print("Importing Matlab Packages")
+import matplotlib.pyplot as plt
+
+# Scikit Packages
+print("Importing Scikit Packages")
+from scipy.ndimage import imread
+from sklearn.preprocessing import LabelBinarizer
+from sklearn.model_selection import StratifiedShuffleSplit
+
 
 class Find_State(object):
     def __init__(self):
@@ -50,10 +60,9 @@ import os
 
 path = "data"
 index = {}
-for i in os.listdir(path):
-    x = hash.detect_state(os.path.join("data", i))
-    index[i[:len(i) - 3]] = x
-
 with open("index", 'w') as f:
-    for key, value in index.items():
-        f.write('%s:%s\n' % (key, value))
+    for i in os.listdir(path):
+        x = hash.detect_state(os.path.join("data", i))
+        index[i[:len(i) - 3]] = x
+        f.write('%s:%s\n' % (i[:len(i) - 3], x))
+
