@@ -26,27 +26,19 @@ from sklearn.preprocessing import LabelBinarizer
 from sklearn.model_selection import StratifiedShuffleSplit
 
 
-class Find_State(object):
+class Find_hash(object):
     def __init__(self):
-        # Constants
-        print("Init Constants")
-        self.class_size = 16
-        self.no_ofcodes = 4096
-
         # The graph ready
         print("Reconstructing Network")
         self.input_ = tf.placeholder(tf.float32, [None, 224, 224, 3])
         self.vgg = vgg16.Vgg16()
         self.vgg.build(self.input_)
 
-    def detect_state(self, path):
-        print("Getting image")
-        # self.path="data/000c2a80838aabff.jpg"
-        # self.test_imgh = imread(path)
+    def detect_hash(self, path):
         self.img = utils.load_image(path)
         self.img = self.img.reshape((1, 224, 224, 3))
 
-        print("Running Network")
+        print("Running Getting Hash for "+path)
         with tf.Session() as sess:
             self.feed_dict = {self.input_: self.img}
             self.code = sess.run(self.vgg.relu6, feed_dict=self.feed_dict)
@@ -54,7 +46,7 @@ class Find_State(object):
         return (self.code[0])
 
 
-hash = Find_State()
+hash = Find_hash()
 
 import os
 
@@ -62,7 +54,7 @@ path = "data"
 index = {}
 with open("index", 'w') as f:
     for i in os.listdir(path):
-        x = hash.detect_state(os.path.join("data", i))
+        x = hash.detect_hash(os.path.join("data", i))
         index[i[:len(i) - 3]] = x
         f.write('%s:%s\n' % (i[:len(i) - 3], x))
 
