@@ -78,8 +78,8 @@ In Folders ```\Train``` and ```\Test``` respectively
 
 We have used multiple networks and below are the results followed by the person responsible for that result
 
-Method| Configuration | Dice (training) | Dice (testing) | Personnel 
---- | --- | --- | --- | ---
+Method| Configuration| Personnel 
+--- | ---  | ---
 
 
 
