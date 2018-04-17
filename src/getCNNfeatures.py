@@ -52,9 +52,30 @@ import os
 
 path = "data"
 index = {}
-with open("index", 'w') as f:
-    for i in os.listdir(path):
-        x = hash.detect_hash(os.path.join("data", i))
-        index[i[:len(i) - 3]] = x
-        f.write('%s:%s\n' % (i[:len(i) - 3], x))
+op = open("index.json", "w")    # writing hashes to json file
+op.write("[\n")
 
+imgs = os.listdir(path)         # list of images
+imcount = len(imgs)             # no. of images
+for i in range(imcount):        # converting to json format {id: _, hash: _}
+    _id = imgs[i][:len(imgs[i]) - 4]    # image id
+    _hash = hash.detect_hash(os.path.join(path, imgs[i]))   # vgg16 hash
+    _hash = _hash.tolist()
+    index[_id] = _hash
+
+    # writing to json
+    op.write('{\n')
+    op.write('\t"id": "%s",\n' % _id)
+    op.write('\t"hash": [')
+
+    for h in _hash[:-1]:
+        op.write('%.3f,' % h)
+    op.write('%.3f]\n' % _hash[-1]) # last element of hash (should avoid ',')
+
+    if i != imcount - 1:
+        op.write('},\n')
+    else:
+        op.write('}\n')         # last entry to json (should avoid ',')
+
+op.write("]")
+op.close()
