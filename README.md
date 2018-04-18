@@ -37,9 +37,9 @@ The link for Linux,Mac and Windows are in the website.Following their instructio
 * Run ```conda env create -f environment.yml``` will install all packages required for all programs in this repository
 ###### To start the environment 
 
-* For Unix like systems ```source activate cilia-env```
+* For Unix like systems ```source activate gir```
 
-* For PC like systems ```activate cilia-env```
+* For PC like systems ```activate gir```
 
 #### Keras
 
