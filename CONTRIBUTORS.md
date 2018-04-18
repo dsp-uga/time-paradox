@@ -13,6 +13,7 @@
 - Wiki
 
 ### Vinay
+- Bug Squashing
 - Readme
 - Wiki
 - NIPS style Paper
