@@ -1,5 +1,6 @@
 from sklearn.cluster import KMeans
 import numpy as np
+from sklearn.externals import joblib
 
 np.set_printoptions(threshold=np.nan)
 import json
@@ -13,9 +14,12 @@ for i in range(len(json_hash)):
         x = np.array(json_hash[i]['hash'])
         hashs = np.vstack((hashs, x))
 
-print(hashs.shape)
-kmeans = KMeans(n_clusters=5, random_state=0).fit(X)
-print(kmeans.labels_)
-kmeans.predict()
 
-print(kmeans.cluster_centers_)
+kmeans = KMeans(n_clusters=2000, random_state=0).fit(hashs)
+joblib.dump(kmeans, 'persistence.pkl')
+
+kmeans = joblib.load('persistence.pkl')
+print(kmeans.labels_)
+#kmeans.predict()
+#print(kmeans.cluster_centers_)
+#[1 1 2 1 0]
