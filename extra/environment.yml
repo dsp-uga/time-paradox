@@ -1,4 +1,4 @@
-name: tf3
+name: gir
 channels:
 - https://conda.binstar.org/menpo
 - defaults
