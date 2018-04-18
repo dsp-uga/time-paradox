@@ -2,12 +2,15 @@
 # CONTRIBUTORS 
 
 ### Nihal Soans
+ - Hashing
+ - Kmeans
  - Readme
  - Wiki
 
 ### Vamsi
+- GCP
 - Readme
- - Wiki
+- Wiki
 
 ### Vinay
 - Readme
