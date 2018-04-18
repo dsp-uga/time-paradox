@@ -1,11 +1,14 @@
 # Team Time Paradox
 Final Project for DSP
 
-# Heading
+# Google Landmark Retrieval
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Blah Blah
+
+Image retrieval is a fundamental problem in computer vision: given a query image, can you find similar images in a large database? This is especially important for query images containing landmarks, which accounts for a large portion of what people like to photograph.
+
+We try to find two images which are similar given an database of images and a image
 
 ## Getting Started
 
