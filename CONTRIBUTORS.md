@@ -6,17 +6,20 @@
  - Kmeans
  - Readme
  - Wiki
+ - Presentation Slides
 
 ### Vamsi
 - GCP
 - Readme
 - Wiki
+- Presentation Slides
 
 ### Vinay
 - Bug Squashing
 - Readme
 - Wiki
 - NIPS style Paper
+- Presentation Slides
 
 
 ### Shadow Resources
