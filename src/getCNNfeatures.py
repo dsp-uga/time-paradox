@@ -34,14 +34,14 @@ class Find_hash(object):
         self.vgg = vgg16.Vgg16()
         self.vgg.build(self.input_)
 
-    def detect_hash(self, path):
+    def detect_hash(self, path,sess):
         self.img = utils.load_image(path)
         self.img = self.img.reshape((1, 224, 224, 3))
 
-        print("Running Getting Hash for "+path)
-        with tf.Session() as sess:
-            self.feed_dict = {self.input_: self.img}
-            self.code = sess.run(self.vgg.relu6, feed_dict=self.feed_dict)
+        print("Getting Hash for "+path)
+
+        self.feed_dict = {self.input_: self.img}
+        self.code = sess.run(self.vgg.relu6, feed_dict=self.feed_dict)
 
         return (self.code[0])
 
@@ -57,25 +57,26 @@ op.write("[\n")
 
 imgs = os.listdir(path)         # list of images
 imcount = len(imgs)             # no. of images
-for i in range(imcount):        # converting to json format {id: _, hash: _}
-    _id = imgs[i][:len(imgs[i]) - 4]    # image id
-    _hash = hash.detect_hash(os.path.join(path, imgs[i]))   # vgg16 hash
-    _hash = _hash.tolist()
-    index[_id] = _hash
+with tf.Session() as sess:
+    for i in range(imcount):        # converting to json format {id: _, hash: _}
+        _id = imgs[i][:len(imgs[i]) - 4]    # image id
+        _hash = hash.detect_hash(os.path.join(path, imgs[i]),sess)   # vgg16 hash
+        _hash = _hash.tolist()
+        index[_id] = _hash
 
-    # writing to json
-    op.write('{\n')
-    op.write('\t"id": "%s",\n' % _id)
-    op.write('\t"hash": [')
+        # writing to json
+        op.write('{\n')
+        op.write('\t"id": "%s",\n' % _id)
+        op.write('\t"hash": [')
 
-    for h in _hash[:-1]:
-        op.write('%.3f,' % h)
-    op.write('%.3f]\n' % _hash[-1]) # last element of hash (should avoid ',')
+        for h in _hash[:-1]:
+            op.write('%.4f,' % h)
+        op.write('%.4f]\n' % _hash[-1]) # last element of hash (should avoid ',')
 
-    if i != imcount - 1:
-        op.write('},\n')
-    else:
-        op.write('}\n')         # last entry to json (should avoid ',')
+        if i != imcount - 1:
+            op.write('},\n')
+        else:
+            op.write('}\n')         # last entry to json (should avoid ',')
 
 op.write("]")
 op.close()
