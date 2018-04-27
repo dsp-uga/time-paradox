@@ -21,7 +21,7 @@ class FormatCsv():
 
 
 		op = open(s, "w")	# this file will be submitted to kaggle
-		op.write("id,url\n")
+		op.write("id,images\n")
 
 		for i in tids:
 			_id = i[1:-1]	# excluding quotes
