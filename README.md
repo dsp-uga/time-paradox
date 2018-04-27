@@ -1,5 +1,5 @@
-# Team Time Paradox
-Final Project for DSP
+# Team Time Paradox  
+Link to [contest page on kaggle](https://www.kaggle.com/c/landmark-retrieval-challenge#evaluation)
 
 # Google Landmark Retrieval
 
@@ -8,7 +8,7 @@ Final Project for DSP
 
 Image retrieval is a fundamental problem in computer vision: given a query image, can you find similar images in a large database? This is especially important for query images containing landmarks, which accounts for a large portion of what people like to photograph.
 
-We try to find two images which are similar given an database of images and a image
+We try to find similar images from a database of images given a query image
 
 ## Getting Started
 
