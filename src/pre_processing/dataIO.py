@@ -15,7 +15,7 @@ class Data:
     '''
     def loadJson(self, path):
         json_hash = json.load(open(path))  # loads json file of hash values
-        hashs = np.array(pd.read_json(path, orient='records').tolist()) 
+        hashs = np.array(pd.read_json(path, orient='records')['hash'].tolist()) 
   
         return json_hash, hashs  # returns the json_hash(id,hash_value) and hash value which is np array.
 
