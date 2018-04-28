@@ -15,7 +15,7 @@ class Data:
     '''
     def loadJson(self, path):
         json_hash = json.load(open(path))  # loads json file of hash values
-        hashs = np.array(pd.read_json(path, orient='records').tolist()) 
+        hashs = np.array(pd.read_json(path, orient='records')['hash'].tolist()) 
   
         return json_hash, hashs  # returns the json_hash(id,hash_value) and hash value which is np array.
 
@@ -27,7 +27,8 @@ class Data:
         img_hash = TemporaryFile()
         imgs = os.listdir(path)  # list of images
         imcount = len(imgs)  # no. of images
-        with tf.Session() as sess:
+        gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.49) # Wil luse only 50% of GPu so that you can run multiple instance 
+        with tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)) as sess:
             for i in range(imcount):  # converting to json format {id: _, hash: _}
                 _id = imgs[i][:len(imgs[i]) - 4]  # image id
                 _hash = hash_mech.detect_hash(os.path.join(path, imgs[i]), sess)  # vgg16 hash
