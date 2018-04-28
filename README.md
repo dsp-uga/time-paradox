@@ -81,7 +81,7 @@ In Folders ```\Train``` and ```\Test``` respectively
 
 As of the date this is written (April 27th) we are ranked 59 of 132 teams in the competition.
 
-Method| Configuration | Result
+S.No| Configuration | Result
 --- | --- | --- 
 1  | VGG16 and Kmeans | 0.004
 
