@@ -3,13 +3,14 @@
 
 ### Nihal Soans
  - Hashing
- - Kmeans
+ - Kmeans (Init)
  - Readme
  - Wiki
  - Presentation Slides
 
 ### Vamsi
 - GCP
+- Kmeans (Major Part)
 - Readme
 - Wiki
 - Presentation Slides
