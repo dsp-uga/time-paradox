@@ -65,7 +65,6 @@ To Run ``` python downloadfiles.py ``` This will download the whole data set inc
 
 In Folders ```\Train``` and ```\Test``` respectively
 
-## Data
 
 ## Running and Training
 
